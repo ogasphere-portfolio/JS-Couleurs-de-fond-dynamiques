@@ -1,0 +1,73 @@
+<h1 id="couleurs-de-fond-_background_-dynamiques-en-js">Couleurs de fond (<em>background</em>) dynamiques en JS</h1>
+<p>Le but de l'exercice est de laisser l'utilisateur changer à loisir la couleur de fond de la page 🌈</p>
+<p>Pourquoi ? Parce que :)</p>
+<h2 id="point-de-départ">Point de départ</h2>
+<p>Vous sont fournies :</p>
+<ul>
+<li>une liste de couleurs CSS standards sur le web dans js/css-colors.js</li>
+<li>une intégration HTML/CSS de base, avec trois couleurs pré-activées</li>
+</ul>
+<h2 id="étapes">Étapes</h2>
+<h3 id="1-un-clic-sur-une-couleur-change-le-_background_">1. Un clic sur une couleur change le <em>background</em></h3>
+<p>Au clic sur une des couleurs de la liste, le <em>background</em> de la page doit adopter cette couleur.</p>
+<p><details><br />
+<summary>Pistes techniques</summary></p>
+<ul>
+<li><a href="assets/docs/aide/js/evenements.md"><code>addEventListener</code></a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event"><code>Event</code></a> et plus particulièrement <a href="https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent"><code>MouseEvent</code></a> =&gt; propriété <code>.target</code></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement"><code>HTMLElement</code></a> et notamment sa propriété <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style"><code>.style</code></a></li>
+</ul>
+<p></details></p>
+<p><details><br />
+<summary>Indices</summary></p>
+<ol>
+<li>Commencer par déterminer sur <em>quel(s) élément(s) HTML</em> l'utilisateur va pouvoir cliquer.</li>
+<li>Un clic est un événement potentiel, indiquer <em>comment</em> réagir <em>si</em> cet événement survient.</li>
+<li>L'élément HTML cliqué est récupérable dans le code source qui s'occupe de gérer le clic.</li>
+</ol>
+<p><details><br />
+<summary>Et plus précisement ?</summary></p>
+<ol>
+<li>Le code source de départ s'occupe de créer les <code>&lt;div&gt;</code> colorés, avec la fonction <code>generateColorBox</code>, on a donc déjà accès à ces éléments et on peut directement travailler avec.</li>
+<li><code>.addEventListener</code> permet d'indiquer, via une fonction, comment réagir à un certain type d'événement, émis par certain(s) éléments HTML.</li>
+<li>L'élément cliqué a un <em>background</em> accessible via sa propriété <code>.style</code> ; il en va de même pour l'élément <code>document.body</code>.</li>
+</ol>
+<p></details><br />
+</details></p>
+<h3 id="2-formulaire-pour-ajouter-des-couleurs">2. Formulaire pour ajouter des couleurs</h3>
+<p>L'utilisateur doit pouvoir ajouter des couleurs à la liste, en utilisant un formulaire. Celui n'existant pas, il faut commencer par l'ajouter à la page, puis gérer son fonctionnement.</p>
+<p><details><br />
+<summary>Pistes techniques</summary></p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault"><code>Event.preventDefault()</code></a></li>
+<li><a href="https://developer.mozilla.org/fr/docs/Web/API/HTMLInputElement"><code>HTMLInputElement</code></a> quand on cible un élément HTML <code>&lt;input&gt;</code></li>
+<li>La propriété <code>.value</code> d'un <code>HTMLInputElement</code>, qui correspond à l'attribut HTML <code>value=</code> de l'élément HTML.</li>
+</ul>
+<p></details></p>
+<p><details><br />
+<summary>Indices</summary></p>
+<ol>
+<li>Un formulaire est un élément HTML comme les autres, par contre il émet des événements spécifiques, notamment <code>'submit'</code>.</li>
+<li>Lors de la soummission du formulaire, l'élément HTML qui subit <code>'submit'</code> n'est pas l'élément qui contient le texte de la couleur. Il faut aller le cibler précisement.</li>
+<li>Le code source contient déjà tout le nécessaire pour concrètement ajouter une nouvelle couleur à la liste, une fois la couleur connue.</li>
+</ol>
+<p><details><br />
+<summary>Et plus précisement ?</summary></p>
+<ol>
+<li>On reste sur un <code>.addEventListener</code>, en changeant l'élément ciblé, le type d'événement écouté, et la fonction <em>callback</em>.</li>
+<li>Penser à empêcher le comportement par défaut du navigateur (rechargement de la page lors de la soumission du formulaire). Pour ce faire, mettre à contribution le paramètre du <em>callback</em>. Ce paramètre <em>peut</em> également être utile pour aller cibler l'élément HTML du formulaire qui contient la valeur de la couleur.</li>
+<li><code>generateColorBox</code> est une fonction que vous pouvez appeler, tant que vous lui passez une couleur.</li>
+</ol>
+<p></details><br />
+</details></p>
+<h3 id="3-activer-la-couleur-ajoutée">3. Activer la couleur ajoutée</h3>
+<p>Quand une couleur est ajoutée à la liste, le <em>background</em> de la page web doit changer 🎉</p>
+<p><details><br />
+<summary>Indice</summary></p>
+<p>On active une couleur en cliquant sur l'élément HTML qui contient affiche son nom. Or, le code source permet d'avoir accès à cet élément HTML. On peut donc <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/click">«&nbsp;émuler&nbsp;» le clic</a>.</p>
+<p></details></p>
+<h3 id="bonus">Bonus</h3>
+<ul>
+<li>Si l'utilisateur propose un nom de couleur invalide, il doit être ignoré.</li>
+<li>Vider le champ texte après l'ajout d'une couleur valide.</li>
+</ul>

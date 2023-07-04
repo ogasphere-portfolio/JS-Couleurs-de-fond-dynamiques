@@ -20,7 +20,7 @@ Au clic sur une des couleurs de la liste, le _background_ de la page doit adopte
 <details>
 <summary>Pistes techniques</summary>
 
-- [`addEventListener`](https://github.com/O-clock-Alumni/fiches-recap/blob/master/js/evenements.md)
+- [`addEventListener`](assets/docs/aide/js/evenements.md)
 - [`Event`](https://developer.mozilla.org/en-US/docs/Web/API/Event) et plus particulièrement [`MouseEvent`](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent) => propriété `.target`
 - [`HTMLElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement) et notamment sa propriété [`.style`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style)
 
